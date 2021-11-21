@@ -1,0 +1,52 @@
+
+.load {
+    height: 90vh;
+}
+
+.loader {
+    height: 30em;
+}
+
+.displayMovies {
+    min-height: 85vh;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.movieList {
+margin: 0.5em;
+font-weight: bold;
+text-align: center;
+}
+
+.poster {
+    // height: 10em;
+    width: 15em;
+    border-radius : 1em;
+    margin: 0.1em;
+    transition: 0.4s;
+
+    box-shadow: 3px 3px 10px 2px #000000; 
+}
+.poster:hover {
+    transition: 0.4s;
+    box-shadow: 0px 0px 15px 5px #41d2b34d;
+}
+
+.searchBar {
+    height: 5vh;
+    width: 98vw;
+    margin: 0.5em;
+}
+
+.searchBar input {
+    width: 15em;
+
+    transition: 0.4s ease-in-out;
+    box-shadow: inset 0px 0px 10px #0B325E;
+
+}
+  
+.searchBar input:focus {
+    box-shadow: inset 0px 0px 0px #0B325E;
+}
