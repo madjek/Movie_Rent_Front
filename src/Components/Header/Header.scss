@@ -1,0 +1,23 @@
+.designHeader {
+    display: flex;
+    height: 10vh;
+    background-image: linear-gradient(to top, $pal0 0%, $pal1 100%);
+
+    // justify-content: flex-end;
+}
+
+.logoImg {
+    height: 3em;
+    margin: 1em;
+    filter: invert(1) drop-shadow(3px 3px 10px #000000);
+}
+
+.logo {
+    margin-right: auto;
+
+}
+
+.nav {
+    margin-left: auto;
+    margin: 1em;
+}
