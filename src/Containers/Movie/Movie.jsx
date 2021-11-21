@@ -39,7 +39,7 @@ const Movie = (props) => {
             if (movie.available === true) {
                 try {
                     await axios.post("https://dvd-rent.herokuapp.com/orders", body, key); 
-                    await axios.put(`https://dvd-rent.herokuapp.com/movies/${body.movie_id}`,{"available": false}, key);
+                    // await axios.put(`https://dvd-rent.herokuapp.com/movies/${body.movie_id}`,{"available": false}, key);
     
                     setmsgError(`Order created`);
         
