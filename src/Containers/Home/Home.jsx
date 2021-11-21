@@ -1,6 +1,4 @@
-
 import React, {useState, useEffect} from 'react';
-
 import axios from 'axios';
 import loader from '../../assets/img/loader.svg';
 import {useNavigate} from 'react-router-dom';
@@ -13,36 +11,31 @@ const Home = () => {
     const [query, setQuery] = useState("");
 
     useEffect(()=>{
-
         setTimeout(()=>{
-            
             showMovies();
         },500);
-
     },[]);
 
     const showMovies = async () => {
-            let res = await axios.get("https://dvd-rent.herokuapp.com/movies");
-        
-            setMovies(res.data);
+        let res = await axios.get("https://dvd-rent.herokuapp.com/movies");
+        setMovies(res.data);
     };
 
     const chosenMovie = (chosenMovie) => {
         localStorage.setItem("chosenMovie", JSON.stringify(chosenMovie));
 
-        //redirigire a el perfil de la película....
         navigate("/movie");
     };
 
     if(movies[1]?.title){
+
         return (
-            
             <div className="back b_col">
                 <div className="searchBar b_row">
-                <input placeholder="Enter Movie Title" onChange={e => setQuery(e.target.value)} />
+                    <input placeholder="Enter Movie Title" onChange={e => setQuery(e.target.value)} />
                 </div>
-                 <div className="displayMovies b_row">
-                 {
+                <div className="displayMovies b_row">
+                {
                     movies.filter(mov => {
                         if (query === '') {
                             return mov;
@@ -54,21 +47,20 @@ const Home = () => {
                             <div className="movieList" key={movie._id}>
                                 <img alt={movie.id} className="poster" onClick={()=>chosenMovie(movie)} src={`${movie.poster_path}`}/>
                             </div>
-                        )
+                        );
                     })
-                }
+                };
                  </div>
             </div>
-        )
+        );
 
     } else {
         return (
             <div className="load back b_row">
                 <img className="loader" alt="loader" src={loader}/>
             </div>
-        )
-    }
-
-}
+        );
+    };
+};
 
 export default Home;

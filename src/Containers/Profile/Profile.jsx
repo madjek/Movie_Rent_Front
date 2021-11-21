@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { LOGOUT, UPDATE_USER } from '../../redux/types';
 import moment from 'moment';
-
 import UserCard from '../../Components/UserCard/UserCard';
 
 const Profile = (props) => {
@@ -11,7 +9,6 @@ const Profile = (props) => {
     const [msgError, setmsgError] = useState("");
     const [orders, setOrders] = useState([]);
     const [users, setUsers] = useState([]);
-    const [userData, setUserData] = useState(props.credentials.user);
     const [query, setQuery] = useState("");
 
     const key = {
@@ -22,12 +19,10 @@ const Profile = (props) => {
     const role = props.credentials.user.role;
 
     useEffect(()=>{
-
         setTimeout(()=>{        
             ShowOrders();
             ShowUsers();
         },100);
-
     },[]);
 
     const DaysCount = (expiry_date, orderId)=>{
@@ -47,7 +42,7 @@ const Profile = (props) => {
             )
         } else {
             axios.delete(`https://dvd-rent.herokuapp.com/orders/${orderId}`, key);
-        }
+        };
     };
 
     const ShowOrders = async ()=>{
@@ -57,7 +52,7 @@ const Profile = (props) => {
         } else {
             let res = await axios.get(`https://dvd-rent.herokuapp.com/orders/user/${userId}`, key);
             setOrders(res.data);
-        }
+        };
     };
 
     const DeleteOrder = async (orderId)=>{
@@ -78,7 +73,7 @@ const Profile = (props) => {
         } else {
             let res = await axios.get(`https://dvd-rent.herokuapp.com/orders/user/${userId}`, key);
             setUsers(res.data);
-        }
+        };
     };
 
     if (props.credentials?.token !== '' && role !== "admin") {
@@ -104,7 +99,7 @@ const Profile = (props) => {
                     {<UserCard/>}
                 </div>
             </div>
-        )
+        );
 
     } else {
         return (
@@ -113,9 +108,9 @@ const Profile = (props) => {
                 <input className="b_row" placeholder="Search..." onChange={e => setQuery(e.target.value)} />
                 </div>
                 <div className=" b_col back">
-                        <div className="b_row"><h3>Users Orders</h3></div>
-                        <div className="admOrders b_row">
-                        {
+                    <div className="b_row"><h3>Users Orders</h3></div>
+                    <div className="admOrders b_row">
+                    {
                         orders.filter(user => {
                             if (query === '') {
                                 return user;
@@ -138,22 +133,23 @@ const Profile = (props) => {
                                     <td><b>Full Name: </b></td>{order.name} {order.surname}<td></td>
                                 </tr>
                                 <tr>
-                                    <td><b>Odrer date:</b></td><td>{moment(order.order_date).format('MMMM DD YYYY')}</td>
+                                    <td><b>Odrer date:</b></td><td>{moment(order.order_date).format('MMMM DD    YYYY')}</td>
                                 </tr>
                                 <tr>
-                                    <td><b>Expiry date:</b></td><td>{moment(order.expiry_date).format('MMMM DD YYYY')}</td>
+                                    <td><b>Expiry date:</b></td><td>{moment(order.expiry_date).format('MMMM DD  YYYY')}</td>
                                 </tr>
                                 </table>
-                                <div className="aDelBtn btn b_row" onClick={() => DeleteOrder(order._id)}>Return the movie</div>
+                                <div className="aDelBtn btn b_row" onClick={() => DeleteOrder(order._id)}>Return    the movie</div>
                             </div>
-                        ))}
-                        </div>
+                        ))
+                    };
+                    </div>
                 </div>
                 <div className="b_col back">
                     <div className="b_row"><h3>Users List</h3></div>
                     <div className="admOrders b_row">
                     {
-                users.filter(user => {
+                        users.filter(user => {
                             if (query === '') {
                                 return user;
                             } else if (user.name.toLowerCase().includes(query.toLowerCase())) {
@@ -190,17 +186,14 @@ const Profile = (props) => {
                                     <td><b>DNI:</b></td><td>{user.dni}</td>
                                 </tr>
                                 </table>
-                                {/* <div className="aDelBtn btn b_row" onClick={() => DeleteOrder(order._id)}>Return the movie</div> */}
                             </div>
-                        ))}
+                        ))
+                    };
                     </div>
                 </div>
-
             </div>   
-        )
-    }
+        );
+    };
 };
 
-export default connect((state)=>({
-    credentials: state.credentials
-}))(Profile);
+export default connect((state)=>({credentials: state.credentials}))(Profile);

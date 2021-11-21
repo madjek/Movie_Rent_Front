@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
 import { connect } from 'react-redux';
-import { LOGIN } from '../../redux/types';
-
 
 const Register = () => {
 
@@ -19,19 +16,14 @@ const Register = () => {
         email: '',
         phone: '',
         password: '',
-        // password2: '',
         city: '',
         address: '',
         cp: 0,
         dni: ''
     });
 
-    //Funcriones
-
     const sendDataRegister = async (props) => {
-        //Comprobación de errores en los datos
 
-        //body generation
         let body = {
             name: user.name,
             surname: user.surname,
@@ -74,32 +66,11 @@ const Register = () => {
                 setmsgError("");
             },2000);
             return;
-        }
+        };
 
         try {
             let res = await axios.post("https://dvd-rent.herokuapp.com/auth/register", body);
             setmsgError(`Welcome ${res.data.name}`);
-
-            // let login = {
-            //     email: res.data.email,
-            //     password: res.data.password
-            // };
-    
-            // try {
-            // let log = await axios.post("https://dvd-rent.herokuapp.com/auth/sign_in", login);
-            //     // setmsgError(`Welcome back ${res.data.user.name}`);
-    
-            //     let data = log.data;
-                
-            //     props.dispatch({type:LOGIN,payload:data});
-    
-            //     setTimeout(() => {
-            //         history("/profile");
-            //     }, 2000);
-            // } catch (error) {
-            //     setmsgError("Wrong email or password");
-            // }
-
 
             setTimeout(()=>{
                 history("/");
@@ -125,16 +96,12 @@ const Register = () => {
         };
     };
 
-    //Handler o manejador
-
     const userHandler = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
-    }
+    };
 
     return (
-
         <div className="designRegister back b_col">
-
             <input type='text' name='name' title='name' onChange={userHandler} placeholder='Name' minLength='3' lenght='30' required/>
             <input type='text' name='surname' title='surname' onChange={userHandler} placeholder='Surname' minLength='3' lenght='30' required/>
             <input className="lower" type='email' name='email' title='email' onChange={userHandler} placeholder='Email' lenght='30' required/>
@@ -147,58 +114,7 @@ const Register = () => {
             <div className="btn b_row" onClick={() => sendDataRegister()}>Register</div>
             <div className="error">{msgError}</div>
         </div>
-
-
-//         <div className="back c_col">
-// 	    	<form className="registration">
-// 	    		<h1>Registration Form</h1>
-
-// 	    		<label for="usename">
-//                     <input type='text' name='name' title='name' onChange={userHandler} placeholder='Name' minlength="3" lenght='20' required/>
-//                     <input type='text' name='surname' title='surname' onChange={userHandler} placeholder='Surname' minlength="3" lenght='20' required/>
-// 	    			{/* <ul className="input-requirements">
-// 	    				<li>At least 3 characters long</li>
-// 	    				<li>Must only contain letters (no special characters)</li>
-// 	    			</ul> */}
-// 	    		</label>
-
-// 	    		<label for="email">
-//                     <input type='email' name='email' title='email' onChange={userHandler} placeholder='Email' lenght='60' required/>
-// 	    		</label>
-
-// 	    		{/* <label for="phone">
-//                     <input type='phone' name='phone' title='phone' onChange={userHandler} placeholder='Phone' lenght='30' required/>
-// 	    		</label> */}
-
-// 	    		<label for="password">
-//                     <input type='password' name='password' title='password' onChange={userHandler} placeholder='Password' minlength="8" length="30" required/>
-// {/* 
-// 	    			<ul className="input-requirements">
-// 	    				<li>At least 8 characters long</li>
-// 	    				<li>Contains at least 1 number</li>
-// 	    				<li>Contains at least 1 lowercase letter</li>
-// 	    				<li>Contains at least 1 uppercase letter</li>
-// 	    				<li>Contains a special character (e.g. @ !)</li>
-// 	    			</ul> */}
-// 	    		</label>
-
-// 	    		{/* <label for="city">
-//                     <input type='text' name='city' title='city' onChange={userHandler} placeholder='City' lenght='30' required/>
-// 	    		</label>
-// 	    		<label for="address">
-//                     <input type='text' name='address' title='address' onChange={userHandler} placeholder='Address' lenght='60' />	    	</label>
-// 	    		<label for="cp">
-//                     <input type='number' name='cp' title='cp' onChange={userHandler} placeholder='Post code' lenght='5' required/>	    	</label>
-// 	    		<label for="dni">
-//                     <input type='text' name='dni' title='dni' onChange={userHandler} placeholder='DNI' lenght='10' />	    		
-//                 </label> */}
-
-// 	    		<div className="btn b_row" onClick={() => sendDataRegister()}>Register</div>	
-
-// 	    	</form>
-// 	    </div>
-
-    )
+    );
 };
 
 export default connect()(Register);

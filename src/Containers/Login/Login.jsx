@@ -12,7 +12,7 @@ const Login = (props) => {
     const [msgError, setmsgError] = useState("");
     const [credentials, setCredentials] = useState({ email: '', password: '' });
 
-    //Handler o manejador
+    //Handler
     const checkInputs = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
     };
@@ -35,20 +35,20 @@ const Login = (props) => {
             setTimeout(() => {
                 history("/profile");
             }, 2000);
+
         } catch (error) {
             setmsgError("Wrong email or password");
-        }
+        };
     };
 
     return (
-
         <div className="designLogin back b_col">
             <input type='email' name='email' title='email' onChange={checkInputs} placeholder='Email' lenght='30' />
             <input type='password' name='password' title='password' onChange={checkInputs} placeholder='Password' lenght='30' />
             <div className="btn b_row" onClick={() => login()}>Login</div>
             <div className="error">{msgError}</div>
         </div>
-    )
+    );
 };
 
 export default connect()(Login);

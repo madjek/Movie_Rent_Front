@@ -1,10 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
 import { connect } from 'react-redux';
-
 import moment from 'moment';
 
 const Movie = (props) => {
@@ -12,7 +9,6 @@ const Movie = (props) => {
     const history = useNavigate();
 
     const [movie, setMovie] = useState(JSON.parse(localStorage.getItem("chosenMovie")));
-
     const [msgError, setmsgError] = useState("");
 
     const key = {
@@ -35,7 +31,7 @@ const Movie = (props) => {
 
         if (props.credentials?.token === '') {
             setmsgError("You should register or login to rent a movie");
-        }
+        };
 
         let res = await axios.get(`https://dvd-rent.herokuapp.com/orders/user/${props.credentials.user._id}`, key);
 
@@ -50,17 +46,17 @@ const Movie = (props) => {
                     setTimeout(() => {
                         history("/profile");
                     }, 2000);
+
                 } catch (error) {
                     setmsgError("Error create order");
-                } 
+                };
             } else {
                 setmsgError("Movie isn't available");
-            }
+            };
     
         } else {
             setmsgError("You can have a maximum three movies at the same time");
- 
-        }
+        };
 
     };
 
@@ -97,12 +93,9 @@ const Movie = (props) => {
                         </tr>
                     </table>
                 </div>
-
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default connect((state)=>({
-    credentials: state.credentials
-}))(Movie);
+export default connect((state)=>({credentials: state.credentials}))(Movie);

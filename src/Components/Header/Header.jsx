@@ -1,11 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { LOGOUT } from '../../redux/types';
-
 import logo from '../../assets/img/logo.svg';
-
-
-// import './Header.scss';
 import Button from '../Button/Button';
 
 const Header = (props) => {
@@ -13,7 +9,7 @@ const Header = (props) => {
     const logOut = () => {        
         props.dispatch({type:LOGOUT});
         window.location.href = '/';
-    }
+    };
 
     if (props.credentials?.token === '') {
         return(
@@ -27,7 +23,7 @@ const Header = (props) => {
                     <Button destination="Register" url="/register"/>
                 </div>
             </div>
-        )
+        );
     } else {
         return(
             <div className="designHeader b_row">
@@ -40,10 +36,8 @@ const Header = (props) => {
                 <div className="logoutButton btn b_row" onClick={() => logOut()}>Logout</div>
             </div>
         </div>
-        )
-    }
-}
+        );
+    };
+};
 
-export default connect((state)=>({
-    credentials: state.credentials
-}))(Header);
+export default connect((state)=>({credentials: state.credentials}))(Header);

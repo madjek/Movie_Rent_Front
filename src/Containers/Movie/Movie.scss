@@ -1,11 +1,9 @@
-
 .designMovie {
     min-height: 90vh;
     height: auto;    
     color: white;
     text-align: center;
     justify-content: flex-start;
-    // padding: 1em;
 }
 
 .profileMovie {
@@ -14,24 +12,15 @@
 }
 
 .movie_img {
-    // margin: 0.5em;
     height: 100%;
     width: 100%;
     border-radius: 1em;
-
     object-fit: cover;
-    
-    // background-color: rgba(255, 255, 255, 0.2);
-
-}
-
-
+    }
 
 .rent{
     width: 10em;
     font-size: 1.1em;
-    // position: absolute;
-    // bottom: 0.5em;
 }
 
 .confirm{
@@ -42,13 +31,10 @@
     height: 4vh;
 }
 
-
 .movie {
     position: relative;
-    // display: inline-block;
     height: 75vh;
     width: 75vw;
-    // padding: 1em;
     border-radius: 1em;
     box-shadow: 3px 3px 10px 2px #000000;
 }
@@ -57,23 +43,22 @@
     position: absolute;
     top: 0; right: 0;
     border-radius: 1em;
-    
     bottom: 0; left: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    
 }
+
 .title {
     font-size: 2em;
     position: absolute;
     width: 100%;
     top: 0.5em;
-    // right: 50%;
     z-index: 9;
-
 }
+
 .lenght {
     width: 7em;
 }
+
 .movieInfo {
     position: absolute;
     display: flex;
@@ -84,31 +69,12 @@
     border-radius: 1em;
     width: 95%;
     height: 80%;
-
     font-size: 1.3em;
-    // color: black;
-    // background-color: rgba(255, 255, 255, 0.2);
     overflow: auto;
-
     align-items: baseline;
-
 }
 
 .movTable {
-    // position: absolute;
     margin-top: auto;
-    // bottom: 0;
     text-align: start;
-
-    // align-self: flex-end;
-    // justify-self: flex-end;
-    // max-height: 10vh;
-    // width: 90%;
-    // overflow: auto;
-    // overflow: scroll;
-    // overflow: hidden;
-
-    // width: 500px;
-    // height: 110px;
-    // overflow: auto;
 }
