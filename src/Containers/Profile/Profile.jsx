@@ -139,7 +139,7 @@ const Profile = (props) => {
                                     <td><b>Expiry date:</b></td><td>{moment(order.expiry_date).format('MMMM DD  YYYY')}</td>
                                 </tr>
                                 </table>
-                                <div className="aDelBtn btn b_row" onClick={() => DeleteOrder(order._id)}>Return    the movie</div>
+                                <div className="aDelBtn btn b_row" onClick={() => DeleteOrder(order._id)}>Return the movie</div>
                             </div>
                         ))
                     };
