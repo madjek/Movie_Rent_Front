@@ -60,7 +60,7 @@ const Profile = (props) => {
         if (con === true) {
             let res = await axios.get(`https://dvd-rent.herokuapp.com/orders/${orderId}`, key);
             await axios.delete(`https://dvd-rent.herokuapp.com/orders/${orderId}`, key);
-            await axios.put(`https://dvd-rent.herokuapp.com/movies/${res.data.movie_id}`,{"available": true}, key);
+            // await axios.put(`https://dvd-rent.herokuapp.com/movies/${res.data.movie_id}`,{"available": true}, key);
             setmsgError(`Order deleted`);
         };
         ShowOrders();
