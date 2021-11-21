@@ -1,0 +1,35 @@
+.userProfile {
+    width: 20vw;
+    min-width: 19em;
+    height: 85vh;
+    margin: 1em;
+}
+
+.userCard {
+    height: 100%;
+    width: 100%;
+    padding: 0.1em;
+    border-radius: 1em;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.userImg {
+    height: 12em;
+}
+
+.userInfo {
+    margin: 0.1em;
+}
+
+
+
+.overfl {
+    display: inline-block;
+    overflow: hidden;
+    max-width: 16vw;
+}
+
+.tabName {
+    width: 6em;
+    white-space: nowrap;
+}

@@ -2,8 +2,6 @@
     display: flex;
     height: 10vh;
     background-image: linear-gradient(to top, $pal0 0%, $pal1 100%);
-
-    // justify-content: flex-end;
 }
 
 .logoImg {
@@ -14,10 +12,17 @@
 
 .logo {
     margin-right: auto;
-
 }
 
 .nav {
     margin-left: auto;
     margin: 1em;
+}
+
+.logoutButton {
+    background-color: $pal0;
+}
+
+.logoutButton:hover {
+    background-color: $pal2;
 }

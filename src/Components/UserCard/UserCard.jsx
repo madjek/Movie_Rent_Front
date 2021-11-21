@@ -66,9 +66,9 @@ const UserCard = (props) => {
         return (
             <div className="b_col">
                 <div><img className="userImg" alt="user" src={userImg}/></div>
-                    <table>
+                    <table className="userInfo">
                         <tr>
-                            <td><b>Full Name:</b></td>{name} {surname}<td></td>
+                            <td className="tabName"><b>Full Name:</b></td>{name} {surname}<td></td>
                         </tr>
                         <tr>
                             <td><b>Email:</b></td><td className="overfl">{email}</td>
