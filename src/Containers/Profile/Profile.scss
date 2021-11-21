@@ -1,0 +1,146 @@
+
+.designProfile {
+// position: relative;
+
+min-height: 90vh;
+height: auto;
+width: 100%;
+color: white;
+align-items: flex-start;
+
+}
+
+.hidden {
+    display: none;
+}
+
+.logoutButton {
+    background-color: $pal0;
+}
+.logoutButton:hover {
+    background-color: $pal2;
+}
+
+.order {
+    position: relative;
+    border-radius : 1em;
+
+}
+
+.orderImg {
+    width: 15em;
+    border-radius : 1em;
+
+}
+
+.delBtn {
+    position: absolute;
+    // height: 2em;
+    width: 75%;
+    margin: 0;
+    border-radius: 1em;
+    // background-color: $pal5;
+    // color: black;
+    font-weight: bold;
+    cursor: pointer;
+    bottom: 0.5em;
+    // right: 1em;
+}
+
+.daysLeft {
+    position: absolute;
+    height: 2em;
+    width: 90%;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 1em;
+    font-weight: bold;
+    top: 0.5em;
+    user-select: none; 
+}
+
+.userImg {
+    height: 12em;
+}
+
+.orders{
+    width: 77vw;
+    max-width: 77vw;
+    height: 75vh;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+.admOrders{
+    min-width: 99vw;
+    height: 25vh;
+    flex-wrap: wrap;
+
+    overflow-y: scroll;
+}
+
+.admUsers{
+    width: 99%;
+    height: 25vh;
+    flex-wrap: wrap;
+
+    overflow-y: scroll;
+}
+
+.order {
+    margin: 1em;
+}
+
+.orderList {
+    display: inline-block;
+    white-space: nowrap;
+    width: 16em;
+    overflow: hidden;
+    margin: 0.2em;
+    padding: 0.2em;
+    font-size: 0.9em;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 0.5em;
+    // margin: 0;
+}
+
+.userList {
+    display: inline-block;
+    white-space: nowrap;
+    width: 16em;
+    overflow: hidden;
+    margin: 0.2em;
+    padding: 0.2em;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 0.5em;
+}
+
+.overfl {
+    display: inline-block;
+    overflow: hidden;
+    max-width: 16vw;
+}
+
+.aDelBtn {
+    width: 55%;
+    margin: auto;
+}
+
+.userProfile {
+    // position: absolute;
+    width: 20vw;
+    min-width: 13em;
+    height: 85vh;
+    margin: 1em;
+}
+
+.userCard {
+    height: 100%;
+    width: 100%;
+    border-radius: 1em;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.uOrders{
+    height: 100%;
+}
