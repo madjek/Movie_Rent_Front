@@ -6,11 +6,13 @@ import UserCard from '../../Components/UserCard/UserCard';
 
 const Profile = (props) => {
 
+    //HOOKS
     const [msgError, setmsgError] = useState("");
     const [orders, setOrders] = useState([]);
     const [users, setUsers] = useState([]);
     const [query, setQuery] = useState("");
 
+    //DEFINE THE TOKEN FOR API REQUEST
     const key = {
         headers: { Authorization: `Bearer ${props.credentials.token}` }
     };
@@ -18,6 +20,7 @@ const Profile = (props) => {
     const userId = props.credentials.user._id;
     const role = props.credentials.user.role;
 
+    // ORDERS AND USER LIST LOADING
     useEffect(()=>{
         setTimeout(()=>{        
             ShowOrders();
@@ -25,6 +28,7 @@ const Profile = (props) => {
         },100);
     },[]);
 
+    //DAYS COUNT DISPLAY ANTIL AUTORETURN THE MOVIE
     const DaysCount = (expiry_date, orderId)=>{
         let daysLeft = moment(expiry_date).format('DD') - moment(Date()).format('DD');
 
@@ -45,6 +49,7 @@ const Profile = (props) => {
         };
     };
 
+    //SHOW ALL ORDERS FOR ADMIN AND SINGLE USER
     const ShowOrders = async ()=>{
         if (role === "admin") {
             let res = await axios.get(`https://dvd-rent.herokuapp.com/orders`, key);      
@@ -55,17 +60,19 @@ const Profile = (props) => {
         };
     };
 
+    //DELETE-RETURN THE MOVIE
     const DeleteOrder = async (orderId)=>{
         let con = window.confirm("Are you sure to return the movie");
         if (con === true) {
             let res = await axios.get(`https://dvd-rent.herokuapp.com/orders/${orderId}`, key);
             await axios.delete(`https://dvd-rent.herokuapp.com/orders/${orderId}`, key);
-            await axios.put(`https://dvd-rent.herokuapp.com/movies/${res.data.movie_id}`,{"available": true}, key);
+            // await axios.put(`https://dvd-rent.herokuapp.com/movies/${res.data.movie_id}`,{"available": true}, key);
             setmsgError(`Order deleted`);
         };
         ShowOrders();
     };
 
+    //SHOW ALL USERS FOR ADMIN AND SINGLE USER
     const ShowUsers = async ()=>{
         if (role === "admin") {
             let res = await axios.get(`https://dvd-rent.herokuapp.com/users`, key);      
@@ -111,6 +118,7 @@ const Profile = (props) => {
                     <div className="b_row"><h3>Users Orders</h3></div>
                     <div className="admOrders b_row">
                     {
+                        //SEARCH IN ORDERS AND USERS
                         orders.filter(user => {
                             if (query === '') {
                                 return user;
@@ -149,6 +157,7 @@ const Profile = (props) => {
                     <div className="b_row"><h3>Users List</h3></div>
                     <div className="admOrders b_row">
                     {
+                        //SEARCH IN ORDERS AND USERS
                         users.filter(user => {
                             if (query === '') {
                                 return user;

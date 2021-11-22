@@ -6,6 +6,7 @@ import Button from '../Button/Button';
 
 const Header = (props) => {
 
+    //LOGOUT
     const logOut = () => {        
         props.dispatch({type:LOGOUT});
         window.location.href = '/';
