@@ -73,19 +73,19 @@ const UserCard = (props) => {
                         <td><b>Email:</b></td><td className="overfl">{email}</td>
                     </tr>
                     <tr style={data(phone)}>
-                        <td><b>Phone:</b></td><td>{phone}</td>
+                        <td><b>Phone:</b></td><td className="overfl">{phone}</td>
                     </tr>
                     <tr style={data(city)}>
-                        <td><b>City:</b></td><td>{city}</td>
+                        <td><b>City:</b></td><td className="overfl">{city}</td>
                     </tr>
                     <tr style={data(address)}>
-                        <td><b>Address:</b></td><td>{address}</td>
+                        <td><b>Address:</b></td><td className="overfl">{address}</td>
                     </tr>
                     <tr style={data(cp)}>
-                        <td><b>Post Code:</b></td><td>{cp}</td>
+                        <td><b>Post Code:</b></td><td className="overfl">{cp}</td>
                     </tr>
                     <tr style={data(dni)}>
-                        <td><b>DNI:</b></td><td>{dni}</td>
+                        <td><b>DNI:</b></td><td className="overfl">{dni}</td>
                     </tr>
                 </table>
                 <div className="logoutButton btn b_row" onClick={() => toggleChecked()}>Update</div>
