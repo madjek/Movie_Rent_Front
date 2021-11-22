@@ -10,6 +10,12 @@
 
 GeeksHubs Bootcamp Fullstack Developer project.  
 
+### Deployment link to view the project
+https://aws.d2z5u0xhzgjfp5.amplifyapp.com/
+
+### Api Backeng github link
+https://github.com/madjek/DVD_Rent
+
 ### Technologies used
 <div>  
 <img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/javascript-original.svg" alt="JavaScript" height="50" /> 
