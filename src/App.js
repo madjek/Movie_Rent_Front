@@ -1,5 +1,6 @@
 import './App.scss';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
 import Home from './Containers/Home/Home';
 import Login from './Containers/Login/Login';
 import Movie from './Containers/Movie/Movie';
@@ -8,6 +9,11 @@ import Profile from './Containers/Profile/Profile';
 import Register from './Containers/Register/Register';
 
 function App() {
+
+  useEffect(() => {
+    document.title = "Movie Rent"
+  }, [])
+
   return (
     <div className="App">
 
