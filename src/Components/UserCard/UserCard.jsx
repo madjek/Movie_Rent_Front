@@ -1,11 +1,12 @@
-import React, {Component, useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { LOGOUT, UPDATE_USER } from '../../redux/types';
+import { UPDATE_USER } from '../../redux/types';
 import userImg from '../../assets/img/user.svg';
 
 const UserCard = (props) => {
 
+    //HOOKS
     const [toggle, setToggle] = useState(true);
     const toggleChecked = () => setToggle(toggle => !toggle);
     const [userData, setUserData] = useState(props.credentials.user);
@@ -14,6 +15,7 @@ const UserCard = (props) => {
         setUserData(props.credentials.user);
     }, [props.credentials]);
 
+    //UPDATE USER INFORMATION
     const goUpdate = async () => {     
 
         const key = {
@@ -34,6 +36,7 @@ const UserCard = (props) => {
         window.location.href = '/profile';
     };
 
+    //SHOW USER INFORMATION
     const User = () => {
 
         const name = props.credentials.user.name;
@@ -45,6 +48,7 @@ const UserCard = (props) => {
         const cp = props.credentials.user.cp;
         const dni = props.credentials.user.dni;
 
+        //HIDE EMPTY FIELDS
         const data = (d) => {
             const style = {};
             if (d === "" || d === 0) {
@@ -89,6 +93,7 @@ const UserCard = (props) => {
         )
     }
 
+    //USER UPDATE FORM
     const Update = () => {
 
         const checkInputs = (e) => {
@@ -128,6 +133,7 @@ const UserCard = (props) => {
         );
     };
 
+    //UPDATE TOGGLER
     return (
        <div className="userCard b_col">
             {toggle &&  User() }

@@ -7,20 +7,24 @@ const Home = () => {
 
     let navigate = useNavigate();
 
+    //HOOKS
     const [movies, setMovies] = useState([]);
     const [query, setQuery] = useState("");
 
+    // MOVIE LIST LOADING
     useEffect(()=>{
         setTimeout(()=>{
             showMovies();
-        },500);
+        },1000);
     },[]);
 
+    //SHOW MOVIES
     const showMovies = async () => {
         let res = await axios.get("https://dvd-rent.herokuapp.com/movies");
         setMovies(res.data);
     };
 
+    //SHOW CHOSEN MOVIE PAGE
     const chosenMovie = (chosenMovie) => {
         localStorage.setItem("chosenMovie", JSON.stringify(chosenMovie));
 
@@ -36,6 +40,7 @@ const Home = () => {
                 </div>
                 <div className="displayMovies b_row">
                 {
+                    //SEARCH THE MOVIE BY TITLE
                     movies.filter(mov => {
                         if (query === '') {
                             return mov;
@@ -55,6 +60,8 @@ const Home = () => {
         );
 
     } else {
+        
+        //LOADER
         return (
             <div className="load back b_row">
                 <img className="loader" alt="loader" src={loader}/>

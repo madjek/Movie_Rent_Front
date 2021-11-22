@@ -8,13 +8,16 @@ const Movie = (props) => {
 
     const history = useNavigate();
 
+    //HOOKS
     const [movie, setMovie] = useState(JSON.parse(localStorage.getItem("chosenMovie")));
     const [msgError, setmsgError] = useState("");
 
+    //DEFINE THE TOKEN FOR API REQUEST
     const key = {
         headers: { Authorization: `Bearer ${props.credentials.token}` }
     };
 
+    //ORDER CREATION
     const Order = async () => {
 
         let body = {
@@ -60,6 +63,7 @@ const Movie = (props) => {
 
     };
 
+    //SHOW ORDER
     return (
         <div className="designMovie b_col back">
             <div className="profileMovie b_col">

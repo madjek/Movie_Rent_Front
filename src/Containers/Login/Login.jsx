@@ -12,11 +12,12 @@ const Login = (props) => {
     const [msgError, setmsgError] = useState("");
     const [credentials, setCredentials] = useState({ email: '', password: '' });
 
-    //Handler
+    //HANDLER
     const checkInputs = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
     };
 
+    //USER LOGIN
     const login = async () => {
 
         let body = {
@@ -41,6 +42,7 @@ const Login = (props) => {
         };
     };
 
+    //LOGIN FORM
     return (
         <div className="designLogin back b_col">
             <input type='email' name='email' title='email' onChange={checkInputs} placeholder='Email' lenght='30' />

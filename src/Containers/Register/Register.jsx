@@ -9,7 +9,6 @@ const Register = () => {
 
     //Hooks
     const [msgError, setmsgError] = useState("");
-
     const [user, setUser] = useState({
         name: '',
         surname: '',
@@ -22,6 +21,7 @@ const Register = () => {
         dni: ''
     });
 
+    //NEW USER REGISTER
     const sendDataRegister = async (props) => {
 
         let body = {
@@ -36,6 +36,7 @@ const Register = () => {
             dni: user?.dni
         };
 
+        //INPUT VALIDATION
         if (! /^([a-zA-Z]{3,30})$/.test(user.name) ) {
             setmsgError("Name should be at least 3 characters long and contain only letters");
             setTimeout(()=>{
@@ -76,16 +77,17 @@ const Register = () => {
                 history("/");
             },2000);
 
+        //CATCH ERRORS FROM BACKEND
         } catch (error) {
             console.log(error?.response?.data?.message?.keyPattern)
-            // if (error.response.data.message.keyPattern.email = 1) {
+            // if (error?.response?.data?.message?.keyPattern?.email = 1) {
             //     setmsgError("This email already registered");
             //     setTimeout(()=>{
             //         setmsgError("");
             //     },2000);
             //     return;
             // }
-            // if (error.response.data.message.keyPattern.phone = 1) {
+            // if (error?.response?.data?.message?.keyPattern?.phone = 1) {
             //     setmsgError("This phone already registered");
             //     setTimeout(()=>{
             //         setmsgError("");
@@ -96,10 +98,12 @@ const Register = () => {
         };
     };
 
+    //HANDLER
     const userHandler = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
     };
 
+    //REGISTER FORM
     return (
         <div className="designRegister back b_col">
             <input type='text' name='name' title='name' onChange={userHandler} placeholder='Name' minLength='3' lenght='30' required/>
